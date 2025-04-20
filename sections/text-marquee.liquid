@@ -1,0 +1,243 @@
+{% if section.settings.text_font == 'text_font_body' %}
+  {% assign fontFa = 'var(--font-body-family)' %}
+{% else %}
+  {% assign fontFa = 'var(--font-heading-family)' %}
+{% endif %}
+
+{% if section.settings.text_uppercase == 'text_uppercase_en' %}
+  {% assign fontUppercase = 'uppercase' %}
+{% else %}
+  {% assign fontUppercase = 'inherit' %}
+{% endif %}
+
+{%- style -%}
+  #announcement-{{ section.id }} {
+    padding-top: calc({{ section.settings.padding_top }}px * 0.75);
+    padding-bottom: calc({{ section.settings.padding_bottom }}px  * 0.75);
+  }
+
+  @media screen and (min-width: 750px) {
+    #announcement-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  #announcement-{{ section.id }} {
+    background: {{ section.settings.announcement_bar_bg }};
+    border-bottom: {{ section.settings.border_width }}px solid {{ section.settings.announcement_bar_border }};
+  }
+  #announcement-{{ section.id }} .announcement-bar p {
+    color: {{ section.settings.text_color }};
+    font-size: {{ section.settings.heading_size }}px;
+    font-family: {{ fontFa }};
+    text-transform: {{ fontUppercase }};
+  }
+  #announcement-{{ section.id }}.announcement-bar-area text-marquee .kit-scrolling-area .kit-scrolling-items {
+      gap: {{ section.settings.horizontal_space }}vw;
+  }
+{%- endstyle -%}
+
+<div class="announcement-bar-area" id="announcement-{{ section.id }}">
+  <text-marquee
+    defaultScrollTime="{{  section.settings.scroll_speed }}"
+    fastScrollTime="{{  section.settings.parallax_scroll_speed }}"
+    mouseScrollDri="{{  section.settings.parallax_effect }}"
+  >
+    <div class="kit-scrolling-area">
+      <div class="kit-scrolling-items">
+        {% content_for 'blocks' %}
+      </div>
+    </div>
+  </text-marquee>
+</div>
+
+{% schema %}
+{
+  "name": "Text marquee", //ridcoder
+  "blocks": [{ "type": "@app" }, { "type": "_marquee" }],
+  "settings": [
+    {
+      "type": "range",
+      "id": "border_width",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "unit": "px",
+      "label": "Border width", //ridcoder
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "horizontal_space",
+      "min": 0,
+      "max": 20,
+      "step": 1,
+      "unit": "vw",
+      "label": "Horizontal space", //ridcoder
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "scroll_speed",
+      "min": 1,
+      "max": 20,
+      "step": 1,
+      "unit": "x",
+      "label": "Speed", //ridcoder
+      "default": 10,
+      "info": "A lower value means faster scrolling, while a higher value means slower scrolling"
+    },
+    {
+      "type": "range",
+      "id": "parallax_scroll_speed",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "unit": "x",
+      "label": "Parallax effect speed", //ridcoder
+      "default": 5,
+      "info": "Parallax effect speed option works when parallax effect is enable, also lower value means faster scrolling, while a higher value means slower scrolling" //ridcoder
+    },
+    {
+      "type": "select",
+      "id": "parallax_effect",
+      "options": [
+        {
+          "value": "true",
+          "label": "Enable" //ridcoder
+        },
+        {
+          "value": "false",
+          "label": "Disable" //ridcoder
+        }
+      ],
+      "default": "false",
+      "label": "Parallax effect" //ridcoder
+    },
+    {
+      "type": "header",
+      "content": "Text content" //ridcoder
+    },
+    {
+      "type": "select",
+      "id": "text_font",
+      "options": [
+        {
+          "value": "text_font_body",
+          "label": "Body" //ridcoder
+        },
+        {
+          "value": "text_font_heading",
+          "label": "Heading" //ridcoder
+        }
+      ],
+      "default": "text_font_body",
+      "label": "Font" //ridcoder
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "min": 0,
+      "max": 80,
+      "step": 1,
+      "unit": "px",
+      "label": "Size", //ridcoder
+      "default": 15
+    },
+    {
+      "type": "select",
+      "id": "text_uppercase",
+      "options": [
+        {
+          "value": "text_uppercase_en",
+          "label": "Enable" //ridcoder
+        },
+        {
+          "value": "text_uppercase_dis",
+          "label": "Disable" //ridcoder
+        }
+      ],
+      "default": "text_uppercase_en",
+      "label": "Uppercase" //ridcoder
+    },
+    {
+      "type": "header",
+      "content": "Color options" //ridcoder
+    },
+    {
+      "type": "color",
+      "id": "announcement_bar_bg",
+      "label": "Background color", //ridcoder
+      "default": "#12267C"
+    },
+    {
+      "type": "color",
+      "id": "announcement_bar_border",
+      "label": "Border color", //ridcoder
+      "default": "#a2acd2"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Body text color", //ridcoder
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 150,
+      "step": 5,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 150,
+      "step": 5,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "Text marquee", //ridcoder
+      "blocks": [
+        {
+          "type": "_marquee",
+          "blocks": [
+            {
+              "type": "_marquee-text"
+            }
+          ]
+        },
+        {
+          "type": "_marquee",
+          "blocks": [
+            {
+              "type": "_marquee-text"
+            }
+          ]
+        },
+        {
+          "type": "_marquee",
+          "blocks": [
+            {
+              "type": "_marquee-text"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
