@@ -1,0 +1,289 @@
+<li
+  scr-scroll="{{ scrTiiger }}"
+  id="Slide-{{ section.id }}-{{ forloop.index }}"
+  class="collection-list__item_{{ block.id }} collection-list__item_vartical_aling_{{ block.settings.vertical_align }} collection-list__item_aling_{{ block.settings.align }} collection-list__item grid__item{% if show_mobile_slider %} slider__slide{% endif %}{% if block.settings.collection.featured_image == nil %} collection-list__item--no-media{% endif %}"
+  {{ block.shopify_attributes }}
+>
+  {% render 'card-collection-list',
+    item_images_height: block.settings.item_images_height,
+    hide_icon_button: block.settings.hide_icon_button,
+    collection_custom_title: block.settings.collection_custom_title,
+    item_images_height_enable: block.settings.item_images_height_enable,
+    collection_custom_img: block.settings.collection_custom_img,
+    item_count: forloop.index,
+    card_collection: block.settings.collection,
+    media_aspect_ratio: section.settings.image_ratio,
+    columns: section.blocks.size
+  %}
+</li>
+{% schema %}
+{
+  "name": "t:sections.collection-list.blocks.featured_collection.name",
+  "settings": [
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "t:sections.collection-list.blocks.featured_collection.settings.collection.label"
+    },
+    {
+      "type": "image_picker",
+      "id": "collection_custom_img",
+      "label": "Images" //ridcoder
+    },
+    {
+      "type": "text",
+      "id": "collection_custom_title",
+      "label": "Heading" //ridcoder
+    },
+    {
+      "type": "select",
+      "id": "align",
+      "options": [
+        {
+          "value": "align_left",
+          "label": "Left" //ridcoder
+        },
+        {
+          "value": "align_center",
+          "label": "Center" //ridcoder
+        },
+        {
+          "value": "align_right",
+          "label": "Right" //ridcoder
+        }
+      ],
+      "default": "align_left",
+      "label": "Content align" //ridcoder
+    },
+    {
+      "type": "select",
+      "id": "vertical_align",
+      "options": [
+        {
+          "value": "align_top",
+          "label": "Top" //ridcoder
+        },
+        {
+          "value": "align_bottom",
+          "label": "Center" //ridcoder
+        },
+        {
+          "value": "align_end",
+          "label": "End" //ridcoder
+        }
+      ],
+      "default": "align_top",
+      "info": "Only applicable on 'Overlay body text' layout", //ridcoder
+      "label": "Vertical align" //ridcoder
+    },
+    {
+      "type": "header",
+      "content": "Color" //ridcoder
+    },
+    {
+      "type": "select",
+      "id": "sections_custom_color",
+      "options": [
+        {
+          "value": "scheme_color",
+          "label": "Scheme color" // ridcoder
+        },
+        {
+          "value": "custom_color",
+          "label": "Custom color" // ridcoder
+        }
+      ],
+      "default": "scheme_color",
+      "label": "Choose Color" // ridcoder
+    },
+    {
+      "type": "color",
+      "id": "icon_color",
+      "label": "Icon color", //ridcoder
+      "default": "#FF8543"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Heading color", //ridcoder
+      "default": "#12267C"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Border color", //ridcoder
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "content_color",
+      "label": "Background", //ridcoder
+      "default": "#F5F6F8"
+    },
+    {
+      "type": "range",
+      "id": "background_color_opacity",
+      "min": 0,
+      "max": 9,
+      "step": 1,
+      "label": "Background opacity", //ridcoder
+      "default": 1,
+      "info": "Only applicable on card content" //ridcoder
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_icon_button",
+      "default": true,
+      "label": "Enable arrow icon" //ridcoder
+    },
+    {
+      "type": "checkbox",
+      "id": "item_images_height_enable",
+      "default": false,
+      "label": "Custom height" //ridcoder
+    },
+    {
+      "type": "range",
+      "id": "item_images_height",
+      "min": 0,
+      "max": 200,
+      "step": 5,
+      "unit": "%",
+      "default": 100,
+      "info": "After calculating the image height, the custom height will be added to the image height also, a minimum height will always be present even if you are using the custom height as 0",
+      "label": "Height" //ridcoder
+    },
+    {
+      "type": "range",
+      "id": "border_width_left",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 5,
+      "label": "Border width left" //ridcoder
+    },
+    {
+      "type": "range",
+      "id": "border_width_right",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 5,
+      "label": "Border width right" //ridcoder
+    },
+    {
+      "type": "range",
+      "id": "border_width_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 5,
+      "label": "Border width top" //ridcoder
+    },
+    {
+      "type": "range",
+      "id": "border_width_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 5,
+      "label": "Border width bottom" //ridcoder
+    },
+    {
+      "type": "range",
+      "id": "border_radius_left",
+      "min": 0,
+      "max": 500,
+      "step": 5,
+      "unit": "px",
+      "default": 20,
+      "label": "Border radius bottom left" //ridcoder
+    },
+    {
+      "type": "range",
+      "id": "border_radius_right",
+      "min": 0,
+      "max": 500,
+      "step": 5,
+      "unit": "px",
+      "default": 20,
+      "label": "Border radius top right" //ridcoder
+    },
+    {
+      "type": "range",
+      "id": "border_radius_top",
+      "min": 0,
+      "max": 500,
+      "step": 5,
+      "unit": "px",
+      "default": 20,
+      "label": "Border radius top left" //ridcoder
+    },
+    {
+      "type": "range",
+      "id": "border_radius_bottom",
+      "min": 0,
+      "max": 500,
+      "step": 5,
+      "unit": "px",
+      "default": 20,
+      "label": "Border radius bottom right" //ridcoder
+    },
+    {
+      "type": "range",
+      "id": "item_button_padding_left",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 20,
+      "label": "Padding left" //ridcoder
+    },
+    {
+      "type": "range",
+      "id": "item_button_padding_right",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 20,
+      "label": "Padding right" //ridcoder
+    },
+    {
+      "type": "range",
+      "id": "item_button_padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 10,
+      "label": "Padding top" //ridcoder
+    },
+    {
+      "type": "range",
+      "id": "item_button_padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 20,
+      "label": "Padding bottom" //ridcoder
+    },
+    {
+      "type": "range",
+      "id": "item_title_size",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 16,
+      "label": "Heading font size" //ridcoder
+    }
+  ],
+  "presets": [{ "name": "Collection" }]
+}
+{% endschema %}
