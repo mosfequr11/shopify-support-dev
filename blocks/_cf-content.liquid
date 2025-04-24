@@ -1,0 +1,17 @@
+<div class="contact_form__content rte" {{ block.shopify_attributes }}>
+  {{ block.settings.text }}
+</div>
+{% schema %}
+{
+  "name": "Content",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "text",
+      "default": "Some text for your contact form. You can use multiple lines of text.",
+      "label": "Body text" //ridcoder
+    }
+  ],
+  "presets": [{ "name": "Content" }]
+}
+{% endschema %}

@@ -1,0 +1,26 @@
+<h2 class="contact_form__heading" {{ block.shopify_attributes }}>
+  {{ block.settings.heading }}
+</h2>
+<h3 class="contact_form__subheading" {{ block.shopify_attributes }}>
+  {{ block.settings.subheading }}
+</h3>
+{% schema %}
+{
+  "name": "Heading",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "Do you have any question?",
+      "label": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "default": "About any services?",
+      "label": "Subheading"
+    }
+  ],
+  "presets": [{ "name": "Heading" }]
+}
+{% endschema %}
