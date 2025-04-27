@@ -1,5 +1,12 @@
-<div class="contact_form__content rte" {{ block.shopify_attributes }}>
-  {{ block.settings.text }}
+<div class="contact_form__feature" {{ block.shopify_attributes }}>
+  {% if block.settings.features_items_icon != 'none' %}
+    <i class="platz-single-info-icon-area">
+      {% render 'icon-list', icon: block.settings.features_items_icon %}
+    </i>
+  {%- endif -%}
+  <div class="rte">
+    {{ block.settings.features_items_text }}
+  </div>
 </div>
 {% schema %}
 {
