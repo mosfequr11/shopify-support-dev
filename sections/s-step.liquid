@@ -1,0 +1,141 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+<div class="relative w-full lg:grid lg:grid-cols-2 section-{{ section.id }}-padding">
+  <div class="w-full hidden lg:block">
+    <div class="aspect-[695/865] w-full relative overflow-hidden rounded-[26px]">
+      {%- if section.settings.bg_image != blank -%}
+        <img
+          src="{{ section.settings.bg_image | image_url: width: 710 }}"
+          loading="lazy"
+          width="{{ section.settings.bg_image.width }}"
+          height="{{ section.settings.bg_image.height }}"
+          alt="{{ section.settings.bg_image.alt | escape }}"
+        >
+      {%- else -%}
+        {{ 'hero-apparel-1' | placeholder_svg_tag: 'placeholder-svg placeholder-svg-gray ' }}
+      {%- endif -%}
+    </div>
+  </div>
+  <div class="w-full h-full lg:h-auto relative flex flex-col justify-between px-[35px] gap-y-[30px] lg:p-[60px] overflow-hidden rounded-2xl lg:rounded-[26px]">
+    {%- if section.settings.text_heading != blank -%}
+      <div class="flex flex-col gap-y-10 lg:gap-y-20 w-full">
+        <div class="h1-serif">
+          <p>{{ section.settings.text_heading }}</p>
+        </div>
+      </div>
+    {%- endif -%}
+    <div class="w-full flex flex-col gap-10 items-center justify-center">
+      {%- if section.settings.text_content != blank -%}
+        <div class="h2-serif text-balance w-full">
+          <p>
+            {{ section.settings.text_content }}
+          </p>
+        </div>
+      {%- endif -%}
+      <ul class="w-full flex-col flex lg:grid grid-cols-3 gap-x-2.5 gap-y-[15px]">
+        {% content_for 'blocks' %}
+      </ul>
+      {%- if section.settings.btn_link != blank -%}
+        <a
+          title="Stir things up"
+          href="{{ section.settings.btn_link }}"
+          class="button content !border-orange hover:!border-black !bg-orange hover:!bg-orange"
+        >
+          {{- section.settings.btn_label -}}
+        </a>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Step",
+  "blocks": [{ "type": "@app" }, { "type": "_item-list" }],
+  "class": "section",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "default": "scheme_1",
+      "label": "Color Scheme" // ridcoder,
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "text_heading",
+      "label": "Heading",
+      "default": "Talk about your brand"
+    },
+    {
+      "type": "text",
+      "id": "text_content",
+      "label": "Content",
+      "default": "Share information about your brand with your customers."
+    },
+    {
+      "type": "text",
+      "id": "btn_label",
+      "label": "Button label",
+      "default": "Button"
+    },
+    {
+      "type": "url",
+      "id": "btn_link",
+      "label": "Link "
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 150,
+      "step": 5,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 150,
+      "step": 5,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 50
+    }
+  ],
+  "presets": [
+    {
+      "name": "Step", //ridcoder
+      "blocks": [
+        {
+          "type": "_item-list"
+        },
+        {
+          "type": "_item-list"
+        },
+        {
+          "type": "_item-list"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

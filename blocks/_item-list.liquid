@@ -1,0 +1,53 @@
+<li class="w-full relative">
+  <div class="w-full flex lg:flex-col gap-y-[25px] gap-x-8 lg:gap-x-12 bg-background py-2 lg:py-10 overflow-hidden rounded-xl h-[85px] lg:h-auto">
+    <div class="w-full flex justify-center items-center lg:h-24 px-4 lg:px-6">
+      {%- if block.settings.bg_image != blank -%}
+        <img
+          src="{{ block.settings.bg_image | image_url: width: 710 }}"
+          loading="lazy"
+          width="{{ block.settings.bg_image.width }}"
+          height="{{ block.settings.bg_image.height }}"
+          alt="{{ block.settings.bg_image.alt | escape }}"
+        >
+      {%- else -%}
+        {{ 'product-apparel-1' | placeholder_svg_tag: 'placeholder-svg placeholder-svg-gray ' }}
+      {%- endif -%}
+    </div>
+    <div class="w-full flex flex-col text-center justify-center items-center gap-y-1">
+      {%- if block.settings.text_title != blank -%}
+        <h4 class="small-sans">
+          {{ block.settings.text_title }}
+        </h4>
+      {%- endif -%}
+      {%- if block.settings.text_content != blank -%}
+        <p class="small-serif">{{ block.settings.text_content }}</p>
+      {%- endif -%}
+    </div>
+  </div>
+</li>
+
+{% schema %}
+{
+  "name": "Item",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "bg_image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "text_title",
+      "label": "Title",
+      "default": "Enter the title"
+    },
+    {
+      "type": "text",
+      "id": "text_content",
+      "label": "Content",
+      "default": "Enter the content"
+    }
+  ],
+  "presets": [{ "name": "Item" }]
+}
+{% endschema %}
