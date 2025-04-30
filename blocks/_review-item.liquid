@@ -1,0 +1,110 @@
+<div class="testimonials__item">
+  <div class="card testimonial-card">
+    <div class="star-rating mh-auto" data-rating="5">
+      {% if block.settings.user_star_rating == '1' %}
+        {% render 'icon-star-1' %}
+      {% elsif block.settings.user_star_rating == '2' %}
+        {% render 'icon-star-2' %}
+      {% elsif block.settings.user_star_rating == '3' %}
+        {% render 'icon-star-3' %}
+      {% elsif block.settings.user_star_rating == '4' %}
+        {% render 'icon-star-4' %}
+      {% elsif block.settings.user_star_rating == '5' %}
+        {% render 'icon-star-5' %}
+      {% endif %}
+    </div>
+
+    <div class="testimonial__content">
+      {%- if block.settings.text_title != blank -%}
+        <h3 class="testimonial__title h4 mb-0-5">{{ block.settings.text_title }}</h3>
+      {%- endif -%}
+      {%- if block.settings.text_content != blank -%}
+        <blockquote class="testimonial__quote color-light-1">
+          {{ block.settings.text_content }}
+        </blockquote>
+      {%- endif -%}
+    </div>
+
+    <cite class="testimonial__author">
+      <div class="testimonial__author__avatar mh-auto mb-0-5">
+        {%- if block.settings.bg_image != blank -%}
+          <img
+            src="{{ block.settings.bg_image | image_url: width: 710 }}"
+            loading="lazy"
+            width="{{ block.settings.bg_image.width }}"
+            height="{{ block.settings.bg_image.height }}"
+            alt="{{ block.settings.bg_image.alt | escape }}"
+          >
+        {%- else -%}
+          {{ 'product-apparel-1' | placeholder_svg_tag: 'placeholder-svg placeholder-svg-gray ' }}
+        {%- endif -%}
+      </div>
+      {%- if block.settings.text_name != blank -%}
+        <span class="text-sm">{{ block.settings.text_name }}</span>
+      {%- endif -%}
+    </cite>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Review",
+  "settings": [
+    {
+      "type": "select",
+      "id": "user_star_rating",
+      "label": "Review star",
+      "options": [
+        {
+          "value": "0",
+          "label": "None"
+        },
+        {
+          "value": "1",
+          "label": "1 stars"
+        },
+        {
+          "value": "2",
+          "label": "2 stars"
+        },
+        {
+          "value": "3",
+          "label": "3 stars"
+        },
+        {
+          "value": "4",
+          "label": "4 stars"
+        },
+        {
+          "value": "5",
+          "label": "5 stars"
+        }
+      ],
+      "default": "5"
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "text_title",
+      "label": "Title",
+      "default": "Enter the title"
+    },
+    {
+      "type": "text",
+      "id": "text_content",
+      "label": "Content",
+      "default": "Enter the content"
+    },
+    {
+      "type": "text",
+      "id": "text_name",
+      "label": "Name",
+      "default": "Enter your name"
+    }
+  ],
+  "presets": [{ "name": "Review" }]
+}
+{% endschema %}
