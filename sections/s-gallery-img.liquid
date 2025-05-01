@@ -1,0 +1,101 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+<div class="section-template--17815700504747__1_ugc_JwCaEV-padding section-{{ section.id }}-padding">
+  <div class="inner tc">
+    {%- if section.settings.text_heading != blank -%}
+      <h2 class="h1 mb-1">{{ section.settings.text_heading }}</h2>
+    {%- endif -%}
+    {%- if section.settings.text_content != blank -%}
+      <div class="measure--sm mh-auto">
+        <p class="text-lg color-titles measure mh-auto mb-5">
+          {{ section.settings.text_content }}
+        </p>
+      </div>
+    {%- endif -%}
+  </div>
+  <div class="gallery-wrap">
+    <div class="ugc-gallery-container">
+      <div class="ugc-gallery">
+        <div class="ugc-gallery-inner">
+          {% content_for 'blocks' %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Gallery",
+  "blocks": [{ "type": "@app" }, { "type": "_gallery-item" }],
+  "class": "section",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "default": "scheme_1",
+      "label": "Color Scheme" // ridcoder,
+    },
+    {
+      "type": "text",
+      "id": "text_heading",
+      "label": "Heading",
+      "default": "Talk about your brand"
+    },
+    {
+      "type": "text",
+      "id": "text_content",
+      "label": "Content",
+      "default": "Share information about your brand with your customers."
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 150,
+      "step": 5,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 150,
+      "step": 5,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 50
+    }
+  ],
+  "presets": [
+    {
+      "name": "Gallery", //ridcoder
+      "blocks": [
+        {
+          "type": "_gallery-item"
+        },
+        {
+          "type": "_gallery-item"
+        },
+        {
+          "type": "_gallery-item"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
