@@ -1,0 +1,22 @@
+<div class="w-[61.625%] overflow-hidden md:w-full" style="border-radius:0px">
+  <div
+    class="splide z-10 h-[900px] overflow-hidden md:aspect-auto md:w-auto md:rounded-[2rem] sm:h-[540px]"
+    aria-label="Featured information"
+  >
+    <div class="splide__track">
+      <ul class="splide__list">
+        {% content_for 'blocks' %}
+      </ul>
+    </div>
+    <ul class="splide__pagination bottom-15 left-15 right-auto text-white md:bottom-10 md:left-5"></ul>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Group",
+  "blocks": [{ "type": "@app" }, { "type": "_slider-item" }],
+  "settings": [],
+  "presets": [{ "name": "Group" }]
+}
+{% endschema %}

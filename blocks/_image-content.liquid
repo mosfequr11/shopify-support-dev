@@ -1,0 +1,19 @@
+<div class="relative w-[45.75%] overflow-hidden md:w-full" style="border-radius:0px">
+  <div
+    class="h-[900px] overflow-hidden md:h-[647px] md:w-full sm:h-[320px]"
+    style="transform:translateX(100%) translateZ(0)"
+  >
+    <div class="h-full">
+      {% content_for 'blocks' %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Group",
+  "blocks": [{ "type": "@app" }, { "type": "_image-item" }],
+  "settings": [],
+  "presets": [{ "name": "Group" }]
+}
+{% endschema %}
