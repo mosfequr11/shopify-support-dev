@@ -1,0 +1,144 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<section class="oharchitecture process_home_wrap u-grid-tablet section-{{ section.id }}-padding">
+  <div id="w-node-_33904072-3145-f0bb-530d-f3954b958a83-5ee71fd0" class="process_left_wrap">
+    {%- if section.settings.text_heading != blank -%}
+      <div data-wf--global-eyebrow--variant="base" class="g_eyebrow u-text-small">
+        ({{ section.settings.text_heading }})
+      </div>
+    {%- endif -%}
+
+    <div data-image-reveal="" class="process_left_cover">
+      <div data-image-cover="" class="g_image_cover"></div>
+      {%- if section.settings.bg_image != blank -%}
+        <img
+          src="{{ section.settings.bg_image | image_url: width: 710 }}"
+          loading="lazy"
+          width="{{ section.settings.bg_image.width }}"
+          height="{{ section.settings.bg_image.height }}"
+          alt="{{ section.settings.bg_image.alt | escape }}"
+        >
+      {%- else -%}
+        {{ 'product-apparel-1' | placeholder_svg_tag: 'placeholder-svg placeholder-svg-gray ' }}
+      {%- endif -%}
+    </div>
+    <div class="process_left_collection w-dyn-list">
+      <div role="list" class="process_left_list w-dyn-items">
+        <!-- loop area -->
+        {% for block in section.blocks %}
+          <div role="listitem" class="process_left_item u-text-main w-dyn-item">
+            <div class="process_left_contain">
+              <div class="process_left_animate">
+                {% assign collection = block.settings.collection_select %}
+                {% if collection %}
+                  <div data-process-item="" class="process_left_index">
+                    (<span data-process-value="" class="process_left_value"> {{ collection.products_count }} </span>)
+                  </div>
+                {% endif %}
+
+                <div class="process_left_title">
+                  {% if block.settings.collection_select.url != blank %}
+                    <a href="{{ block.settings.collection_select.url }}">
+                      {{- block.settings.collection_select.title -}}
+                    </a>
+                  {% else %}
+                    Collection's name
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+            <div class="process_left_line"></div>
+          </div>
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+  {%- if section.settings.text_content != blank -%}
+    <div id="w-node-_76f99075-8b04-0f10-3283-03423b0659c6-5ee71fd0" class="process_aside_wrap">
+      <p class="process_aside_paragraph u-text-h3 u-sr-only">({{ section.settings.text_content }})</p>
+    </div>
+  {%- endif -%}
+</section>
+{% schema %}
+{
+  "name": "Collection list",
+  "class": "section",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "default": "scheme_1",
+      "label": "Color Scheme" // ridcoder,
+    },
+    {
+      "type": "text",
+      "id": "text_heading",
+      "label": "Heading",
+      "default": "Talk about your brand"
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "text_content",
+      "label": "Content",
+      "default": "Describe your Collection info"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 150,
+      "step": 5,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 150,
+      "step": 5,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 50
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collection_list",
+      "name": "Collection list",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection_select",
+          "label": "Collection"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collection list", //ridcoder
+      "blocks": []
+    }
+  ]
+}
+{% endschema %}
