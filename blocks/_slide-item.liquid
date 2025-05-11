@@ -1,0 +1,47 @@
+<li class="splide__slide w-full">
+  <div class="z-10 p-15 sm:p-5 sm:py-10">
+    {%- if block.settings.text_title != blank -%}
+      <h4 class="montserrat-uppercase">{{ block.settings.text_title }}</h4>
+    {%- endif -%}
+    {%- if block.settings.text_content != blank -%}
+      <h3>{{ block.settings.text_content }}</h3>
+    {%- endif -%}
+    {%- if block.settings.bg_image != blank -%}
+      <img
+        src="{{ block.settings.bg_image | image_url: width: 710 }}"
+        loading="lazy"
+        width="{{ block.settings.bg_image.width }}"
+        height="{{ block.settings.bg_image.height }}"
+        alt="{{ block.settings.bg_image.alt | escape }}"
+      >
+    {%- else -%}
+      {{ 'product-apparel-1' | placeholder_svg_tag: 'placeholder-svg placeholder-svg-gray ' }}
+    {%- endif -%}
+  </div>
+</li>
+
+{% schema %}
+{
+  "name": "Slide",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "bg_image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "text_title",
+      "label": "Title",
+      "default": "Enter the title"
+    },
+    {
+      "type": "text",
+      "id": "text_content",
+      "label": "Content",
+      "default": "Enter the content"
+    }
+  ],
+  "presets": [{ "name": "Slide" }]
+}
+{% endschema %}
