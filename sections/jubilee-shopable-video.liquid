@@ -96,21 +96,175 @@
       "label": "Color Scheme"
     },
     {
+      "type": "header",
+      "content": "Section header"
+    },
+    {
+      "type": "text",
+      "id": "jubilee__subheading",
+      "label": "Subheading",
+      "default": "As Seen In"
+    },
+    {
+      "type": "richtext",
+      "id": "jubilee_heading",
+      "label": "Heading",
+      "default": "<p>Community Stories</p>"
+    },
+    {
+      "type": "checkbox",
+      "id": "jubilee_enable_heading_animation",
+      "label": "Enable heading underline animation",
+      "default": false,
+      "info": "Add an underline by wrapping text in italics. Use the Italic (I) button in the editor to apply it."
+    },
+    {
       "type": "select",
-      "id": "sections_animations",
+      "id": "jubilee_underline_style",
+      "label": "Underline style",
+      "default": "squiggle",
       "options": [
-        {
-          "value": "none",
-          "label": "None"
-        },
-        {
-          "value": "have",
-          "label": "Ambient"
-        }
+        { "value": "solid", "label": "Solid underline" },
+        { "value": "dotted", "label": "Dotted underline" },
+        { "value": "dashed", "label": "Dashed underline" },
+        { "value": "squiggle", "label": "Squiggle underline" }
+      ]
+    },
+    {
+      "type": "color",
+      "id": "jubilee_underline_color",
+      "label": "Underline color",
+      "default": "#FFB005"
+    },
+    {
+      "type": "richtext",
+      "id": "jubilee_description",
+      "label": "Description"
+    },
+    {
+      "type": "select",
+      "id": "jubilee_heading_size",
+      "label": "Heading size",
+      "default": "h2",
+      "options": [
+        { "value": "h1", "label": "Heading 1" },
+        { "value": "h2", "label": "Heading 2" },
+        { "value": "h3", "label": "Heading 3" },
+        { "value": "h4", "label": "Heading 4" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "jubilee_alignment",
+      "label": "Alignment",
+      "default": "center",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "jubilee_video_ratio",
+      "label": "Video ratio",
+      "options": [
+        { "value": "adapt_first", "label": "Adapt to first video" },
+        { "value": "16_9", "label": "16:9" },
+        { "value": "4_3", "label": "4:3" },
+        { "value": "1_1", "label": "1:1" }
       ],
-      "default": "none",
-      "label": "Animation",
-      "info": "Animation: Activates on load and scroll to animate."
+      "default": "adapt_first"
+    },
+    {
+      "type": "checkbox",
+      "id": "jubilee_video_autoplay",
+      "label": "Video auto play",
+      "default": true,
+      "info": "Video will autoplay when this block is active or visible on screen."
+    },
+    {
+      "type": "select",
+      "id": "jubilee_enable_video_sticky",
+      "label": "Enable video sticky",
+      "options": [
+        { "value": "desktop_only", "label": "Desktop only" },
+        { "value": "mobile_only", "label": "Mobile only" },
+        { "value": "all", "label": "All devices" },
+        { "value": "none", "label": "None" }
+      ],
+      "default": "desktop_only"
+    },
+
+    {
+      "type": "header",
+      "content": "Carousel settings"
+    },
+    {
+      "type": "range",
+      "id": "jubilee_items_row_desktop",
+      "label": "Items per row on desktop",
+      "min": 1,
+      "max": 6,
+      "step": 1,
+      "default": 4
+    },
+    {
+      "type": "select",
+      "id": "jubilee_column_gap",
+      "label": "Column gap",
+      "options": [
+        { "value": "small", "label": "Small" },
+        { "value": "medium", "label": "Medium" },
+        { "value": "large", "label": "Large" }
+      ],
+      "default": "medium"
+    },
+    {
+      "type": "checkbox",
+      "id": "jubilee_show_navigation",
+      "label": "Show navigation",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "jubilee_show_pagination",
+      "label": "Show pagination",
+      "default": false,
+      "info": "Pagination will automatically show on mobile if you display the number of items on mobile as 1 or 2."
+    },
+    {
+      "type": "checkbox",
+      "id": "jubilee_auto_change_slide",
+      "label": "Auto-change slide",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "jubilee_change_slides",
+      "label": "Change slides every",
+      "min": 2,
+      "max": 20,
+      "step": 1,
+      "unit": "s",
+      "default": 10
+    },
+    {
+      "type": "header",
+      "content": "Mobile settings"
+    },
+    {
+      "type": "range",
+      "id": "jubilee_row_mobile",
+      "label": "Items per row on mobile",
+      "min": 1,
+      "max": 2,
+      "step": 0.1,
+      "default": 1.2
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
     },
     {
       "type": "range",
