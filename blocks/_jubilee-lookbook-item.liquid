@@ -3,11 +3,104 @@
 </div>
 {% schema %}
 {
-  "name": "Product",
-  "settings": [],
+  "name": "Products",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "header",
+      "content": "Product 1"
+    },
+    {
+      "type": "range",
+      "id": "product_1_vertical",
+      "label": "Vertical position",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "product_1_horizontal",
+      "label": "Horizontal position",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "default": 10
+    },
+    {
+      "type": "product",
+      "id": "product_1",
+      "label": "Product"
+    },
+    {
+      "type": "header",
+      "content": "Product 2"
+    },
+    {
+      "type": "range",
+      "id": "product_2_vertical",
+      "label": "Vertical position",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "product_2_horizontal",
+      "label": "Horizontal position",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "default": 30
+    },
+    {
+      "type": "product",
+      "id": "product_2",
+      "label": "Product"
+    },
+    {
+      "type": "header",
+      "content": "Product 3"
+    },
+    {
+      "type": "range",
+      "id": "product_3_vertical",
+      "label": "Vertical position",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "default": 70
+    },
+    {
+      "type": "range",
+      "id": "product_3_horizontal",
+      "label": "Horizontal position",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "default": 80
+    },
+    {
+      "type": "product",
+      "id": "product_3",
+      "label": "Product"
+    }
+  ],
   "presets": [
     {
-      "name": "Product"
+      "name": "Products"
     }
   ]
 }
