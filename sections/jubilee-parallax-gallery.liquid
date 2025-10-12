@@ -1,0 +1,328 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<section class="parallax-gallery">
+  <div class="parallax-gallery__inner">
+    <div class="parallax-gallery__wrap">
+      {% content_for 'blocks' %}
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Parallax gallery",
+  "tag": "section",
+  "blocks": [{ "type": "_jubilee-parallax-video" }, { "type": "_jubilee-parallax-image" }],
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "select",
+      "id": "jubilee_content_alignment",
+      "label": "Content alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "select",
+      "id": "jubilee_content_width",
+      "label": "Content width",
+      "options": [
+        {
+          "value": "small",
+          "label": "Small"
+        },
+        {
+          "value": "normal",
+          "label": "Normal"
+        },
+        {
+          "value": "large",
+          "label": "Large"
+        },
+        {
+          "value": "box",
+          "label": "Box"
+        }
+      ],
+      "default": "small"
+    },
+    {
+      "type": "text",
+      "id": "jubilee_subheading",
+      "label": "Subheading",
+      "default": "END OF SEASON SALE"
+    },
+    {
+      "type": "text",
+      "id": "jubilee_heading",
+      "label": "Heading",
+      "default": "Sale up to 40% Off"
+    },
+    {
+      "type": "select",
+      "id": "jubilee_heading_size",
+      "label": "Heading size",
+      "options": [
+        {
+          "value": "heading-xi",
+          "label": "Heading XI"
+        },
+        {
+          "value": "heading-0",
+          "label": "Heading 0"
+        },
+        {
+          "value": "heading-1",
+          "label": "Heading 1"
+        },
+        {
+          "value": "heading-2",
+          "label": "Heading 2"
+        },
+        {
+          "value": "heading-3",
+          "label": "Heading 3"
+        },
+        {
+          "value": "heading-4",
+          "label": "Heading 4"
+        },
+        {
+          "value": "heading-5",
+          "label": "Heading 5"
+        },
+        {
+          "value": "heading-6",
+          "label": "Heading 6"
+        }
+      ],
+      "default": "heading-xi"
+    },
+    {
+      "type": "richtext",
+      "id": "jubilee_content",
+      "label": "Content",
+      "default": "<p>Upgrade Your Beach Look With Stylish Deals: Enjoy Up To 40% off Swimwear!</p>"
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "text",
+      "id": "jubilee_button_label",
+      "label": "Button label",
+      "default": "Shop Sale",
+      "info": "Leave the label blank to hide the button."
+    },
+    {
+      "type": "url",
+      "id": "jubilee_button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "select",
+      "id": "jubilee_button_style",
+      "label": "Button style",
+      "options": [
+        {
+          "value": "primary",
+          "label": "Primary"
+        },
+        {
+          "value": "white",
+          "label": "White color"
+        },
+        {
+          "value": "accent",
+          "label": "Accent color"
+        }
+      ],
+      "default": "primary"
+    },
+    {
+      "type": "checkbox",
+      "id": "jubilee_show_arrow_icon",
+      "label": "Show arrow icon",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Section Images"
+    },
+    {
+      "type": "checkbox",
+      "id": "jubilee_show_parallax_scroll",
+      "label": "Show parallax scroll",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "jubilee_images_scroll_now",
+      "label": "Images scroll now",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "jubilee_section_images_width",
+      "label": "Section images width",
+      "options": [
+        {
+          "value": "boxed",
+          "label": "Boxed"
+        },
+        {
+          "value": "wide",
+          "label": "Wide"
+        },
+        {
+          "value": "full",
+          "label": "Full"
+        }
+      ],
+      "default": "boxed"
+    },
+    {
+      "type": "checkbox",
+      "id": "jubilee_row_gap",
+      "label": "Row gap",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 60
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "jubilee_background_color",
+      "label": "Background",
+      "default": "transparent"
+    },
+    {
+      "type": "color",
+      "id": "jubilee_text_color",
+      "label": "Text",
+      "default": "transparent"
+    },
+    {
+      "type": "color",
+      "id": "jubilee_border_color",
+      "label": "Border",
+      "default": "transparent"
+    },
+    {
+      "type": "header",
+      "content": "Section Divider"
+    },
+    {
+      "type": "checkbox",
+      "id": "jubilee_show_top_divider",
+      "label": "Show top divider",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "jubilee_divider_top_width",
+      "label": "Divider top width",
+      "options": [
+        {
+          "value": "boxed",
+          "label": "Boxed"
+        },
+        {
+          "value": "wide",
+          "label": "Wide"
+        },
+        {
+          "value": "full",
+          "label": "Full"
+        }
+      ],
+      "default": "boxed"
+    },
+    {
+      "type": "checkbox",
+      "id": "jubilee_show_bottom_divider",
+      "label": "Show bottom divider",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "jubilee_divider_bottom_width",
+      "label": "Divider bottom width",
+      "options": [
+        {
+          "value": "boxed",
+          "label": "Boxed"
+        },
+        {
+          "value": "wide",
+          "label": "Wide"
+        },
+        {
+          "value": "full",
+          "label": "Full"
+        }
+      ],
+      "default": "boxed"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Parallax gallery",
+      "blocks": []
+    }
+  ]
+}
+{% endschema %}

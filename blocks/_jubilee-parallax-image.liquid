@@ -1,0 +1,73 @@
+<div class="parallax-gallery__item">
+  <h2>Image code here</h2>
+</div>
+{% schema %}
+{
+  "name": "Image",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "jubilee_image",
+      "label": "Select Image"
+    },
+    {
+      "type": "range",
+      "id": "jubilee_video_width",
+      "label": "Width image",
+      "min": 100,
+      "max": 800,
+      "step": 10,
+      "unit": "px",
+      "default": 400
+    },
+    {
+      "type": "select",
+      "id": "jubilee_video_size",
+      "label": "Image size",
+      "options": [
+        {
+          "value": "square",
+          "label": "Square (1:1)"
+        },
+        {
+          "value": "portrait",
+          "label": "Portrait (2:3)"
+        },
+        {
+          "value": "landscape",
+          "label": "Landscape (4:3)"
+        },
+        {
+          "value": "landscape-2",
+          "label": "Landscape (5:3.5)"
+        },
+        {
+          "value": "widescreen",
+          "label": "Wide(16:9)"
+        }
+      ],
+      "default": "square"
+    },
+    {
+      "type": "header",
+      "content": "Parallax Settings",
+      "info": "Parallax offset only works with Parallax animation type."
+    },
+    {
+      "type": "range",
+      "id": "jubilee_parallax_offset",
+      "label": "Parallax offset",
+      "min": -100,
+      "max": 100,
+      "step": 5,
+      "default": -50,
+      "info": "Defines the parallax scrolling effect intensity. Positive values shift elements down; negative values shift them up."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image"
+    }
+  ]
+}
+{% endschema %}
