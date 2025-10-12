@@ -1,0 +1,32 @@
+<div class="collection-list__item">
+  <a href=""><h2>Collection name</h2></a>
+</div>
+{% schema %}
+{
+  "name": "Collection",
+  "settings": [
+    {
+      "type": "collection",
+      "id": "jubilee_collection",
+      "label": "collection"
+    },
+    {
+      "type": "image_picker",
+      "id": "jubilee_image",
+      "label": "Image",
+      "info": "Leave blank to use collection's image"
+    },
+    {
+      "type": "text",
+      "id": "jubilee_title",
+      "label": "Title",
+      "info": "Leave blank to use collection's title"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collection"
+    }
+  ]
+}
+{% endschema %}

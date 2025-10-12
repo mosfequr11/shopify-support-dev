@@ -1,0 +1,255 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<section class="collection-list">
+  <div class="collection-list__inner">
+    <div class="collection-list__wrap">
+      {% content_for 'blocks' %}
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Collection list",
+  "tag": "section",
+  "blocks": [{ "type": "_jubilee-collection-list-item" }],
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "default": "scheme_1",
+      "label": "Color Scheme"
+    },
+    {
+      "type": "header",
+      "content": "Section header"
+    },
+    {
+      "type": "richtext",
+      "id": "jubilee_heading",
+      "label": "Heading",
+      "default": "<p>Community Stories</p>"
+    },
+    {
+      "type": "checkbox",
+      "id": "jubilee_enable_heading_animation",
+      "label": "Enable heading underline animation",
+      "default": false,
+      "info": "Add an underline by wrapping text in italics. Use the Italic (I) button in the editor to apply it."
+    },
+    {
+      "type": "select",
+      "id": "jubilee_underline_style",
+      "label": "Underline style",
+      "default": "squiggle",
+      "options": [
+        { "value": "solid", "label": "Solid underline" },
+        { "value": "dotted", "label": "Dotted underline" },
+        { "value": "dashed", "label": "Dashed underline" },
+        { "value": "squiggle", "label": "Squiggle underline" }
+      ]
+    },
+    {
+      "type": "color",
+      "id": "jubilee_underline_color",
+      "label": "Underline color",
+      "default": "#FFB005"
+    },
+    {
+      "type": "richtext",
+      "id": "jubilee_description",
+      "label": "Description"
+    },
+    {
+      "type": "select",
+      "id": "jubilee_heading_size",
+      "label": "Heading size",
+      "default": "h2",
+      "options": [
+        { "value": "h1", "label": "Heading 1" },
+        { "value": "h2", "label": "Heading 2" },
+        { "value": "h3", "label": "Heading 3" },
+        { "value": "h4", "label": "Heading 4" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "jubilee_alignment",
+      "label": "Alignment",
+      "default": "center",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Collection"
+    },
+    {
+      "type": "select",
+      "id": "jubilee_image_ratio",
+      "label": "Image ratio",
+      "default": "adapt",
+      "options": [
+        { "value": "adapt", "label": "Adapt to image" },
+        { "value": "square", "label": "Square (1:1)" },
+        { "value": "portrait", "label": "Portrait (3:4)" },
+        { "value": "landscape", "label": "Landscape (4:3)" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "jubilee_content_position",
+      "label": "Content position",
+      "default": "overlay",
+      "options": [
+        { "value": "overlay", "label": "Overlay image" },
+        { "value": "below", "label": "Below image" }
+      ]
+    },
+    {
+      "type": "radio",
+      "id": "jubilee_content_alignment",
+      "label": "Content alignment",
+      "default": "center",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" }
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "jubilee_show_product_count",
+      "label": "Show product count",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "jubilee_items_per_row",
+      "label": "Items per row on desktop",
+      "min": 1,
+      "max": 6,
+      "step": 1,
+      "default": 4
+    },
+    {
+      "type": "select",
+      "id": "jubilee_item_column_gap",
+      "label": "Column gap",
+      "default": "medium",
+      "options": [
+        { "value": "none", "label": "None" },
+        { "value": "small", "label": "Small" },
+        { "value": "medium", "label": "Medium" },
+        { "value": "large", "label": "Large" }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Overlay image settings"
+    },
+    {
+      "type": "color",
+      "id": "jubilee_text_color",
+      "label": "Text color",
+      "default": "#111111"
+    },
+    {
+      "type": "header",
+      "content": "Carousel settings"
+    },
+    {
+      "type": "range",
+      "id": "jubilee_items_row_desktop",
+      "label": "Items per row on desktop",
+      "min": 1,
+      "max": 6,
+      "step": 1,
+      "default": 4
+    },
+    {
+      "type": "select",
+      "id": "jubilee_column_gap",
+      "label": "Column gap",
+      "options": [
+        { "value": "small", "label": "Small" },
+        { "value": "medium", "label": "Medium" },
+        { "value": "large", "label": "Large" }
+      ],
+      "default": "medium"
+    },
+    {
+      "type": "checkbox",
+      "id": "jubilee_show_navigation",
+      "label": "Show navigation",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "jubilee_show_pagination",
+      "label": "Show pagination",
+      "default": false,
+      "info": "Pagination will automatically show on mobile if you display the number of items on mobile as 1 or 2."
+    },
+    {
+      "type": "checkbox",
+      "id": "jubilee_auto_change_slide",
+      "label": "Auto-change slide",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "jubilee_change_slides",
+      "label": "Change slides every",
+      "min": 2,
+      "max": 20,
+      "step": 1,
+      "unit": "s",
+      "default": 10
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 60
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collection list",
+      "blocks": []
+    }
+  ]
+}
+{% endschema %}
