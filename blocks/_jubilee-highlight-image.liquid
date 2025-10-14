@@ -1,0 +1,45 @@
+<div class="highlight-text__item">
+  <h2>Image code here</h2>
+</div>
+{% schema %}
+{
+  "name": "Image",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "jubilee_image",
+      "label": "Select Image"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Image link (optional)"
+    },
+    {
+      "type": "range",
+      "id": "jubilee_image_width",
+      "label": "Image width large screens",
+      "min": 12,
+      "max": 360,
+      "step": 4,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "jubilee_mobile_width",
+      "label": "Image width mobile",
+      "min": 12,
+      "max": 360,
+      "step": 4,
+      "unit": "px",
+      "default": 80
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image"
+    }
+  ]
+}
+{% endschema %}

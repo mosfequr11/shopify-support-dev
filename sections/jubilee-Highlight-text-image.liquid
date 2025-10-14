@@ -1,0 +1,247 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<section class="highlight-text">
+  <div class="highlight-text__inner">
+    <div class="highlight-text__wrap">
+      {% content_for 'blocks' %}
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Highlight text with image",
+  "tag": "section",
+  "blocks": [{ "type": "_jubilee-highlight-text" }, { "type": "_jubilee-highlight-image" }],
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "select",
+      "id": "jubilee_text_alignment",
+      "label": "Text alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "checkbox",
+      "id": "jubilee_center_text_mobile",
+      "label": "Center text on mobile",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "text_size",
+      "label": "Text size",
+      "options": [
+        {
+          "value": "small",
+          "label": "Small"
+        },
+        {
+          "value": "medium",
+          "label": "Medium"
+        },
+        {
+          "value": "large",
+          "label": "Large"
+        },
+        {
+          "value": "extra-large",
+          "label": "Extra large"
+        }
+      ],
+      "default": "small"
+    },
+    {
+      "type": "select",
+      "id": "jubilee_mobile_text_size",
+      "label": "Mobile text size",
+      "options": [
+        {
+          "value": "small",
+          "label": "Small"
+        },
+        {
+          "value": "medium",
+          "label": "Medium"
+        },
+        {
+          "value": "large",
+          "label": "Large"
+        },
+        {
+          "value": "extra-large",
+          "label": "Extra large"
+        }
+      ],
+      "default": "medium"
+    },
+    {
+      "type": "header",
+      "content": "Style"
+    },
+    {
+      "type": "checkbox",
+      "id": "jubilee_full_width",
+      "label": "Full width",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "jubilee_color_scheme",
+      "label": "Color scheme",
+      "options": [
+        {
+          "value": "scheme-1",
+          "label": "Scheme 1"
+        },
+        {
+          "value": "scheme-2",
+          "label": "Scheme 2"
+        },
+        {
+          "value": "scheme-3",
+          "label": "Scheme 3"
+        },
+        {
+          "value": "scheme-4",
+          "label": "Scheme 4"
+        },
+        {
+          "value": "scheme-5",
+          "label": "Scheme 5"
+        },
+        {
+          "value": "scheme-6",
+          "label": "Scheme 6"
+        }
+      ],
+      "default": "scheme-6"
+    },
+    {
+      "type": "select",
+      "id": "jubilee_section_background",
+      "label": "Section background",
+      "options": [
+        {
+          "value": "default",
+          "label": "Default"
+        },
+        {
+          "value": "color",
+          "label": "Color"
+        },
+        {
+          "value": "image",
+          "label": "Image"
+        },
+        {
+          "value": "simple_gradient",
+          "label": "Simple gradient"
+        },
+        {
+          "value": "complex_gradient",
+          "label": "Complex gradient"
+        }
+      ],
+      "default": "simple_gradient"
+    },
+    {
+      "type": "color",
+      "id": "jubilee_gradient_start",
+      "label": "Gradient start",
+      "default": "#F7F4F0"
+    },
+    {
+      "type": "color",
+      "id": "jubilee_gradient_end",
+      "label": "Gradient end",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "select",
+      "id": "jubilee_gradient_style",
+      "label": "Gradient style",
+      "options": [
+        {
+          "value": "linear",
+          "label": "Linear"
+        },
+        {
+          "value": "easeup",
+          "label": "Ease up"
+        },
+        {
+          "value": "easedown",
+          "label": "Ease down"
+        }
+      ],
+      "default": "linear"
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 60
+    }
+  ],
+  "presets": [
+    {
+      "name": "Highlight text with image",
+      "blocks": [
+        {
+          "type": "_jubilee-highlight-text"
+        },
+        {
+          "type": "_jubilee-highlight-image"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

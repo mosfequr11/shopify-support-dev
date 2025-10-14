@@ -1,0 +1,37 @@
+<div class="highlight-text__item">
+  <h2>Text show here</h2>
+</div>
+{% schema %}
+{
+  "name": "Text",
+  "settings": [
+    {
+      "type": "text",
+      "id": "jubilee_text",
+      "label": "Text",
+      "default": "or collections"
+    },
+    {
+      "type": "select",
+      "id": "jubilee_font_family",
+      "label": "Font",
+      "options": [
+        {
+          "value": "heading_font",
+          "label": "Heading font"
+        },
+        {
+          "value": "body_font",
+          "label": "Body font"
+        }
+      ],
+      "default": "heading_font"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Text"
+    }
+  ]
+}
+{% endschema %}
