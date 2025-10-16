@@ -1,0 +1,100 @@
+<section class="before-leave">
+  <div class="before-leave__inner">Before you leave</div>
+</section>
+
+{% schema %}
+{
+  "name": "Before you leave",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Color Scheme"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "default": "scheme_1",
+      "label": "Color Scheme"
+    },
+    {
+      "type": "range",
+      "id": "jubilee_show_time_after",
+      "label": "Show time after (seconds)",
+      "min": 0,
+      "max": 300,
+      "step": 5,
+      "unit": "s",
+      "default": 60
+    },
+    {
+      "type": "image_picker",
+      "id": "jubilee_banner_image",
+      "label": "Banner image",
+      "info": "380 x 350px recommended"
+    },
+    {
+      "type": "range",
+      "id": "image_overlay_opacity",
+      "label": "Image overlay opacity",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Content Settings"
+    },
+    {
+      "type": "text",
+      "id": "jubilee_subheading",
+      "label": "Subheading",
+      "default": "Before you leave"
+    },
+    {
+      "type": "text",
+      "id": "jubilee_heading",
+      "label": "Heading",
+      "default": "Before You Go Here's Your 10% Treat"
+    },
+    {
+      "type": "textarea",
+      "id": "jubilee_description",
+      "label": "Description",
+      "default": "<p>Save 10% on orders over $170 — use the code above. Don't miss it.</p>"
+    },
+    {
+      "type": "text",
+      "id": "jubilee_discount_code",
+      "label": "Discount code",
+      "default": "SAVE10",
+      "info": "Enter the discount code to display"
+    },
+    {
+      "type": "header",
+      "content": "Recommended products"
+    },
+    {
+      "type": "collection",
+      "id": "jubilee_collection",
+      "label": "Collection"
+    },
+    {
+      "type": "range",
+      "id": "jubilee_products_to_show",
+      "label": "Products to show",
+      "min": 2,
+      "max": 12,
+      "step": 1,
+      "default": 4
+    }
+  ],
+  "presets": [
+    {
+      "name": "Before you leave"
+    }
+  ]
+}
+{% endschema %}

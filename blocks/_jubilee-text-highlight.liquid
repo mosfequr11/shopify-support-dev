@@ -1,0 +1,93 @@
+<div class="highlight-text">
+  <h2>Highlight text</h2>
+</div>
+{% schema %}
+{
+  "name": "Highlight text",
+  "settings": [
+    {
+      "type": "text",
+      "id": "jubilee_highlight_text",
+      "label": "Highlight text",
+      "default": "Highlight text"
+    },
+    {
+      "type": "select",
+      "id": "jubilee_size",
+      "label": "Size",
+      "options": [
+        {
+          "value": "small",
+          "label": "Small"
+        },
+        {
+          "value": "base",
+          "label": "Base size"
+        },
+        {
+          "value": "large",
+          "label": "Large"
+        },
+        {
+          "value": "xlarge",
+          "label": "Extra large"
+        }
+      ],
+      "default": "base"
+    },
+    {
+      "type": "select",
+      "id": "jubilee_icon",
+      "label": "Select icon",
+      "options": [
+        {
+          "value": "none",
+          "label": "Unset"
+        },
+        {
+          "value": "star",
+          "label": "Star"
+        },
+        {
+          "value": "dot",
+          "label": "Dot"
+        }
+      ],
+      "default": "none"
+    },
+    {
+      "type": "color",
+      "id": "jubilee_background_color",
+      "label": "Background color",
+      "default": "#C03E35"
+    },
+    {
+      "type": "color",
+      "id": "jubilee_text_color",
+      "label": "Text color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "checkbox",
+      "id": "jubilee_uppercase",
+      "label": "Uppercase",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "jubilee_spacing_bottom",
+      "label": "Spacing bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 10
+    }
+  ],
+  "presets": [
+    {
+      "name": "Highlight text"
+    }
+  ]
+}
+{% endschema %}

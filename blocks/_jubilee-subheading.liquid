@@ -1,0 +1,128 @@
+<div class="subheading">
+  <h2>Subeading</h2>
+</div>
+{% schema %}
+{
+  "name": "Subheading",
+  "settings": [
+    {
+      "type": "text",
+      "id": "jubilee_subheading",
+      "label": "Subheading",
+      "default": "Subheading"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "jubilee_width",
+      "label": "Width",
+      "options": [
+        {
+          "value": "fit",
+          "label": "Fit"
+        },
+        {
+          "value": "fill",
+          "label": "Fill"
+        }
+      ],
+      "default": "fit"
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "select",
+      "id": "jubilee_preset",
+      "label": "Preset",
+      "info": "Edit presets in theme settings",
+      "options": [
+        {
+          "value": "heading-1",
+          "label": "Heading 1"
+        },
+        {
+          "value": "heading-2",
+          "label": "Heading 2"
+        },
+        {
+          "value": "heading-3",
+          "label": "Heading 3"
+        },
+        {
+          "value": "heading-4",
+          "label": "Heading 4"
+        },
+        {
+          "value": "heading-5",
+          "label": "Heading 5"
+        },
+        {
+          "value": "heading-6",
+          "label": "Heading 6"
+        }
+      ],
+      "default": "heading-2"
+    },
+    {
+      "type": "header",
+      "content": "Appearance"
+    },
+    {
+      "type": "checkbox",
+      "id": "jubilee_background",
+      "label": "Background",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "jubilee_background_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "jubilee_corner_radius",
+      "min": 1,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "label": "Corner radius",
+      "default": 10
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "spacing_top",
+      "label": "Top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "spacing_bottom",
+      "label": "Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 10
+    }
+  ],
+  "presets": [
+    {
+      "name": "Subheading"
+    }
+  ]
+}
+{% endschema %}

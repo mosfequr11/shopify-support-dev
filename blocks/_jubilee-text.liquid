@@ -4,7 +4,12 @@
 {% schema %}
 {
   "name": "Text",
-  "blocks": [{ "type": "_jubilee-heading" }, { "type": "_jubilee-description" }],
+  "blocks": [
+    { "type": "_jubilee-heading" },
+    { "type": "_jubilee-description" },
+    { "type": "_jubilee-subheading" },
+    { "type": "_jubilee-text-highlight" }
+  ],
   "settings": [
     {
       "type": "select",
@@ -56,6 +61,12 @@
         },
         {
           "type": "_jubilee-description"
+        },
+        {
+          "type": "_jubilee-subheading"
+        },
+        {
+          "type": "_jubilee-text-highlight"
         }
       ]
     }
