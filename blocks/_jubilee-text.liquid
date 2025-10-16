@@ -4,11 +4,11 @@
 {% schema %}
 {
   "name": "Text",
-  "blocks": [{ "type": "_jubilee-heading" }],
+  "blocks": [{ "type": "_jubilee-heading" }, { "type": "_jubilee-description" }],
   "settings": [
     {
       "type": "select",
-      "id": "vertical_alignment",
+      "id": "jubilee_vertical_alignment",
       "label": "Vertical alignment",
       "options": [
         {
@@ -28,7 +28,7 @@
     },
     {
       "type": "select",
-      "id": "horizontal_alignment",
+      "id": "jubilee_horizontal_alignment",
       "label": "Content alignment",
       "options": [
         {
@@ -55,10 +55,7 @@
           "type": "_jubilee-heading"
         },
         {
-          "type": "_jubilee-heading"
-        },
-        {
-          "type": "_jubilee-heading"
+          "type": "_jubilee-description"
         }
       ]
     }
