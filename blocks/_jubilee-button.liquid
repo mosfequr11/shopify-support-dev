@@ -1,0 +1,109 @@
+<div class="button">
+  <h2>Button</h2>
+</div>
+{% schema %}
+{
+  "name": "Button",
+  "settings": [
+    {
+      "type": "header",
+      "content": "First Button Settings"
+    },
+    {
+      "type": "text",
+      "id": "jubilee_first_button_label",
+      "label": "Button label",
+      "default": "First button"
+    },
+    {
+      "type": "url",
+      "id": "jubilee_first_button_link",
+      "label": "Button link",
+      "info": "Paste a link or search"
+    },
+    {
+      "type": "select",
+      "id": "jubilee_first_button_type",
+      "label": "Type",
+      "options": [
+        {
+          "value": "primary",
+          "label": "Primary"
+        },
+        {
+          "value": "outline",
+          "label": "Outline"
+        },
+        {
+          "value": "link",
+          "label": "Link"
+        }
+      ],
+      "default": "primary"
+    },
+    {
+      "type": "checkbox",
+      "id": "jubilee_first_btn_new",
+      "label": "Open link in new tab",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Second Button Settings"
+    },
+    {
+      "type": "text",
+      "id": "jubilee_second_button_label",
+      "label": "Button label",
+      "default": "Second button"
+    },
+    {
+      "type": "url",
+      "id": "jubilee_second_button_link",
+      "label": "Button link",
+      "info": "Paste a link or search"
+    },
+    {
+      "type": "select",
+      "id": "jubilee_second_button_type",
+      "label": "Type",
+      "options": [
+        {
+          "value": "primary",
+          "label": "Primary"
+        },
+        {
+          "value": "outline",
+          "label": "Outline"
+        },
+        {
+          "value": "link",
+          "label": "Link"
+        }
+      ],
+      "default": "outline"
+    },
+    {
+      "type": "checkbox",
+      "id": "jubilee_second_btn_tab",
+      "label": "Open link in new tab",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "jubilee_spacing_bottom",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "label": "Spacing bottom",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "Button"
+    }
+  ]
+}
+{% endschema %}

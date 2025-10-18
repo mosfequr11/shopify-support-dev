@@ -1,0 +1,299 @@
+<section class="image-cards">
+  <div class="image-cards__inner">Image card items</div>
+</section>
+
+{% schema %}
+{
+  "name": "Image cards",
+  "tag": "section",
+  "blocks": [{ "type": "_jubilee-image-card" }],
+  "settings": [
+    {
+      "type": "header",
+      "content": "General"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "default": "scheme_1",
+      "label": "Color Scheme"
+    },
+    {
+      "type": "header",
+      "content": "Section header"
+    },
+    {
+      "type": "text",
+      "id": "jubilee_subheading",
+      "label": "Subheading",
+      "default": "END OF SEASON SALE"
+    },
+    {
+      "type": "text",
+      "id": "jubilee_heading",
+      "label": "Heading",
+      "default": "Sale up to 40% Off"
+    },
+    {
+      "type": "checkbox",
+      "id": "jubilee_enable_heading_animation",
+      "label": "Enable heading underline animation",
+      "default": false,
+      "info": "Add an underline by wrapping text in italics. Use the Italic (I) button in the editor to apply it."
+    },
+    {
+      "type": "select",
+      "id": "jubilee_underline_style",
+      "label": "Underline style",
+      "default": "squiggle",
+      "options": [
+        { "value": "solid", "label": "Solid underline" },
+        { "value": "dotted", "label": "Dotted underline" },
+        { "value": "dashed", "label": "Dashed underline" },
+        { "value": "squiggle", "label": "Squiggle underline" }
+      ]
+    },
+    {
+      "type": "color",
+      "id": "jubilee_underline_color",
+      "label": "Underline color",
+      "default": "#FFB005"
+    },
+    {
+      "type": "richtext",
+      "id": "jubilee_description",
+      "label": "Description"
+    },
+    {
+      "type": "select",
+      "id": "jubilee_heading_size",
+      "label": "Heading size",
+      "default": "h2",
+      "options": [
+        { "value": "h1", "label": "Heading 1" },
+        { "value": "h2", "label": "Heading 2" },
+        { "value": "h3", "label": "Heading 3" },
+        { "value": "h4", "label": "Heading 4" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "jubilee_alignment",
+      "label": "Alignment",
+      "default": "center",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Card settings"
+    },
+    {
+      "type": "select",
+      "id": "jubilee_image_ratio",
+      "label": "Image ratio",
+      "options": [
+        {
+          "value": "adapt",
+          "label": "Adapt to image"
+        },
+        {
+          "value": "square",
+          "label": "Square (1:1)"
+        },
+        {
+          "value": "portrait",
+          "label": "Portrait (2:3)"
+        },
+        {
+          "value": "landscape",
+          "label": "Landscape (4:3)"
+        },
+        {
+          "value": "wide",
+          "label": "Wide (16:9)"
+        }
+      ],
+      "default": "adapt"
+    },
+    {
+      "type": "select",
+      "id": "jubilee_desk_img_position",
+      "label": "Desktop image position",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "left",
+      "info": "Image will be shown above text on mobile."
+    },
+    {
+      "type": "header",
+      "content": "Content settings"
+    },
+    {
+      "type": "color",
+      "id": "jubilee_background_color",
+      "label": "Background color",
+      "default": "#ECE7DA"
+    },
+    {
+      "type": "select",
+      "id": "jubilee_desk_vertical_align",
+      "label": "Desktop vertical alignment",
+      "options": [
+        {
+          "value": "top",
+          "label": "Top"
+        },
+        {
+          "value": "middle",
+          "label": "Middle"
+        },
+        {
+          "value": "bottom",
+          "label": "Bottom"
+        }
+      ],
+      "default": "middle"
+    },
+    {
+      "type": "select",
+      "id": "jubilee_content_alignment",
+      "label": "Content alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "header",
+      "content": "Carousel settings"
+    },
+    {
+      "type": "range",
+      "id": "jubilee__per_row_desktop",
+      "label": "Items per row on desktop",
+      "min": 1,
+      "max": 5,
+      "step": 0.5,
+      "default": 1.5
+    },
+    {
+      "type": "select",
+      "id": "jubilee_column_gap",
+      "label": "Column gap",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "small",
+          "label": "Small"
+        },
+        {
+          "value": "medium",
+          "label": "Medium"
+        },
+        {
+          "value": "large",
+          "label": "Large"
+        }
+      ],
+      "default": "medium"
+    },
+    {
+      "type": "checkbox",
+      "id": "jubilee_show_navigation",
+      "label": "Show navigation",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "jubilee_show_pagination",
+      "label": "Show pagination",
+      "default": true,
+      "info": "Pagination will automatically show on mobile if you display the number of items on mobile as 1 or 2"
+    },
+    {
+      "type": "checkbox",
+      "id": "jubilee_reveal_next_slide",
+      "label": "Reveal next slide",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Mobile settings"
+    },
+    {
+      "type": "range",
+      "id": "jubilee__per_row_mobile",
+      "label": "Items per row on mobile",
+      "min": 1,
+      "max": 3,
+      "step": 0.5,
+      "default": 1.5,
+      "info": "Set to 1 or 2 to automatically show pagination on mobile"
+    },
+    {
+      "type": "range",
+      "id": "jubilee_row_mobile",
+      "label": "Items per row on mobile",
+      "min": 1,
+      "max": 2,
+      "step": 0.1,
+      "default": 1.2
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 60
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image cards"
+    }
+  ]
+}
+{% endschema %}

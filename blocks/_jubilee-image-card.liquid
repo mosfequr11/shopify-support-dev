@@ -1,0 +1,31 @@
+<div class="image-cards__item">
+  <h2>Card</h2>
+</div>
+{% schema %}
+{
+  "name": "Card",
+  "blocks": [
+    { "type": "_jubilee-heading" },
+    { "type": "_jubilee-description" },
+    { "type": "_jubilee-text-highlight" },
+    { "type": "_jubilee-button" }
+  ],
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "jubilee_desktop_image",
+      "label": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "jubilee_mobile_image",
+      "label": "Mobile image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Card"
+    }
+  ]
+}
+{% endschema %}
